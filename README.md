@@ -175,7 +175,10 @@ To achieve DNS load balancing - Assign multiple A records to the same DNS name f
 
 * Need component to choose leader election => In-Cluster Manager, e.g. ZooKeeper
 ** Responsible for mapping between Queues, Leaders and Followers
+
+
 ** Reliable, Scalable and Performant
+
 ** Can we avoid Leader election?
 
 
