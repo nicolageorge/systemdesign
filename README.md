@@ -62,18 +62,27 @@ To achieve DNS load balancing - Assign multiple A records to the same DNS name f
 
 #### Actions
 * Request Validation
+
 ** Ensure Required Parameters are present
+
 ** Ensure data is not larger then permitted
+
 ** Other Constraints
 
 * Authentication/Authorization
+
 ** AUTHENTICATE -> Validate the identity of a user or a service
+
 ** AUTHORIZE -> Determine whether or not the actor has permissions to do certain actions
 
 * TLS(SSL) Termination
+
 ** TLS -> Ensure data privacy and integrity
+
 ** TLS Termination -> decrypt a request and pass unqncrypted request to the BackEnd
+
 ** TODO: SSL on Load Balancer is Expensive
+
 ** Termination usually handled by a TLS HTTP Proxy process that runs on the same host, not the FrontEnd service
 
 * Server-side Encryption
@@ -81,29 +90,47 @@ To achieve DNS load balancing - Assign multiple A records to the same DNS name f
 ** Messages are stored in encrypted form and FrontEnd decrypts messages only when they are sent to the consumer
 
 * Caching
+
 ** Stores copies of source data
+
 ** Helps reduce load on backend services
+
 ** Increase overall system throutput and availability
+
 ** Decrease latency
+
 ** Stores metadata information about most used queues
+
 ** Stores user identity information to save on calls to authentication services 
 
 * Rate limiting (Throttling)
+
 ** Limiting the number of requests per time unit
+
 ** Protect the web service from being overwhelmed with requests
+
 ** TODO: Leaky bucket algorithm
 
 * Request dispatching
+
 ** Responsible for all the activities associated with sending requests to backend services
+
 *** Clients management
+
 *** Response handling
+
 *** Resources Isolation
+
 ** TODO: Blukhead Pattern helps to isolate elements of application into pools so that if one fails, other will not be affected
+
 ** TODO: Circuit Breaker pattern prevents an application from repeatedly trying to execute an operation that's likey to fail
 
 * Request deduplication
+
 ** May occur when a response from successful send_message request failed to reach a client
+
 ** TODO: Lesser issue for 'At least once' delivery schematics, bigger issue for 'Exactly Once' or 'At most once' delivery semantics when we need to guarantee the message was processed at most once
+
 ** Caching usually used to store previously seen request ids
 
 * Usage data collection
@@ -120,13 +147,16 @@ To achieve DNS load balancing - Assign multiple A records to the same DNS name f
 ### BackEnd Service
 
 * Where and How do we store messages ?
+
 ** RAM and local disk of backend host
 
 * How do we replicate data?
+
 ** Replicate within a group of hosts
 
 * How does FrontEnd select a backendhost to send data to?
 * How does FrontEnd know where to retrieve data from?
+
 ** Metadata Service
 
 #### Option 1 -> Leader-Follower relationship
@@ -165,6 +195,7 @@ e.g. 3 clusters each with 3,4 Machines distributed across several datacenters
 4. Called instance resposible for data cleanup across all nodes in cluster
 
 ** No longer need component to choose leader election
+
 ** Need component to manage queue to cluster assignments => Out-Cluster Manager
 
 
