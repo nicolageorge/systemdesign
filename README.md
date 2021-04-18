@@ -18,10 +18,13 @@ Extra
 
 ### Synchronous Communication
 ++ easy
+
 ++ faster to implement
 
 -- hard to deal with errors
+
 -- hard to deal with multiple requests
+
 -- hard to deal with failing consumers
 
 ==> must have async communication
@@ -35,6 +38,9 @@ DNS Resolves to load balancer
 Load balancing techniques - Active - Passive Failover
 
 To achieve DNS load balancing - Assign multiple A records to the same DNS name for the service
+
 => Requests are partitioned over several Load Balancers, over several Data Centers
+
 	=> Increase Availability
+
 	=> Increase Performance
