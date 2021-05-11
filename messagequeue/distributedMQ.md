@@ -38,13 +38,13 @@ System Design points to consider
 
 ## High Level Design
 
-![High Level Architecture](/im1.png)
+![High Level Architecture](im1.png)
 
 ## Components
 
 ### DNS and Load Balancer
 
-# Im2 Placeholder
+![DNS and Load Balancer](im2.png)
 
 TODO: Virtual IP Partitioning
 DNS Resolves to load balancer
@@ -115,6 +115,8 @@ To achieve DNS load balancing - Assign multiple A records to the same DNS name f
 
 ### Metadata Service
 
+![Metadata Service](im3.png)
+
 - A caching layer between FrontEnd and persistent storage
 - Many Reads, little writes
 - Strong consistency is prefered but not required
@@ -122,9 +124,10 @@ To achieve DNS load balancing - Assign multiple A records to the same DNS name f
 - simplifies maintenance and ability to make changes
 - provides access through an well defined interface (API)
 
-# Im3 Placeholder
 
 ### BackEnd Service
+
+![BackEnd Service](im4.png)
 
 - Where and How do we store messages ?
     - RAM and local disk of backend host
@@ -137,6 +140,9 @@ To achieve DNS load balancing - Assign multiple A records to the same DNS name f
     - Metadata Service
 
 #### Option 1 -> Leader-Follower relationship
+
+![BackEnd Service](im5.png)
+
 * all messages in queue go to this leader instance
 
 ##### On SEND
@@ -157,6 +163,9 @@ To achieve DNS load balancing - Assign multiple A records to the same DNS name f
 
 
 #### Option 2 -> Small Cluster of independent hosts, All instances are equal
+
+![BackEnd Service](im6.png)
+
 e.g. 3 clusters each with 3,4 Machines distributed across several datacenters
 
 ##### On SEND
@@ -225,7 +234,10 @@ e.g. 3 clusters each with 3,4 Machines distributed across several datacenters
     - setup alerts
     - customers can setup dashboards
 
-SLA Reevaluation
+### SLA Reevaluation
+
+![BackEnd Service](im7.png)
+
 - Scalable
     - Yes, all components are scalable, when load increases -> scale horizontally
 - Highly Available
