@@ -3,7 +3,7 @@ System Design points to consider
 
 # Distributed message queue
 
-![Schema](/im0.png)
+![Schema](im0.png)
 
 ## Requirements
 
