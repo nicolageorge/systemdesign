@@ -135,7 +135,8 @@ To achieve DNS load balancing - Assign multiple A records to the same DNS name f
 - How do we replicate data?
     - Replicate within a group of hosts
 
-- How does FrontEnd select a backendhost to send data to?
+- How does FrontEnd select a backend host to send data to?
+    - Metadata Service
 - How does FrontEnd know where to retrieve data from?
     - Metadata Service
 
