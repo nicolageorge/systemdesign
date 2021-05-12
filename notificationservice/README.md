@@ -1,6 +1,3 @@
-# systemdesign
-System Design points to consider
-
 # Notification Service
 
 ![Schema](im0.png)

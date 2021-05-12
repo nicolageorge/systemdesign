@@ -1,6 +1,3 @@
-# systemdesign
-System Design points to consider
-
 # Distributed message queue
 
 ![Schema](im0.png)
